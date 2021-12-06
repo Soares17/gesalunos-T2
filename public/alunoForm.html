@@ -9,11 +9,11 @@
         <script type="text/javascript" src="scripts.js"></script>
         <title>Document</title>
     </head>
-    <body onload="getNavbar();">
+    <body onload="init();">
         <div id="nbar">
         </div>
 
-        <div class="container-fluid p-4 text-center"><h1>Dados do aluno</h1>
+        <div class="container-fluid p-4 text-center"><h1>Dados do utilizador</h1>
         </div>
         <div class="container">
             <label 
@@ -48,17 +48,17 @@
                 </div>
 
                 <div class="row">
-                    <div class="col-sm-4">
+                    <div class="col-sm-6">
                         <label 
                         for="dnasc" 
-                        class="col-sm-2 col-form-label">Data:</label>
+                        class="col-sm-6 col-form-label">Data nascimento:</label>
                         <input 
                             class="form-control" 
                             type="date" 
                             id="dnasc"
                             placeholder="Data de nascimento...">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <label 
                         for="telem" 
                         class="col-sm-2 col-form-label">Telemóvel:</label>
@@ -68,7 +68,7 @@
                             id="telem"
                             placeholder="nº telemóvel...">
                     </div>
-                    <div class="col-sm-4">
+                    <div class="col-sm-3">
                         <label 
                         for="email" 
                         class="col-sm-2 col-form-label">Email:</label>
@@ -86,13 +86,18 @@
                         for="tipo" 
                         class="col-sm-2 col-form-label">Tipo:</label>
                         <select 
-                            class="form-select" 
-                            id="tipo"
-                            <option selected>Open this select menu</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
-                          </select>
+                            class="form-select" id="tipo">
+                        </select>
+                    </div>
+                    <div class="col-sm-8">
+                        <label 
+                        for="foto" 
+                        class="col-sm-4 col-form-label">Escolher fotografia:</label>
+                        <input 
+                            class="form-control" 
+                            type="file" 
+                            id="foto"
+                            placeholder="nº telemóvel...">
                     </div>
                 </div>                 
             </div>
