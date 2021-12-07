@@ -28,7 +28,7 @@ function getTipos(){
 
         }
     })
-    .catch()
+    .catch( )
 }
 
 
