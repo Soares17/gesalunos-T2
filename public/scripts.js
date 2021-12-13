@@ -98,9 +98,35 @@ function getData(){
     .then(res => res.json())
     .then(response => alert(response.text))
     .catch((err) => {
-        alert('ocorreu um erro com o pedido')
+        alert(err)
     })
     
+}
+
+
+function sendImage(){
+    const image = document.getElementById('foto').files[0]
+    let imageData = new FormData()
+    imageData.append('image', 'image')
+    if(image==undefined){
+        alert('Não há imagem selecionada!')
+    }
+    else {
+        let options = {
+            method: 'POST',
+            headers: {
+                'Accept':'application/json'
+            },
+            mode: 'cors',
+            body: imageData
+        }
+        fetch('http://localhost:3000/util', options)
+        .then(res => res.json())
+        .then(data => alert(data.message))
+        .catch((err)=>{
+            alert(err)
+        })
+    }
 }
 
 
