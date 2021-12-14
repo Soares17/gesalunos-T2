@@ -2,6 +2,7 @@ const express = require('express')
 const multer = require('multer')
 const inserirutilizadorRoute = express.Router()
 const connection = require('../dbconnection')
+const cors = require('cors')
 
 const storage = multer.diskStorage({
     destination: (req,file,callback)=>{
@@ -17,8 +18,8 @@ const upload = multer({
     limits: {fileSize: 1000000}
 })
 
-inserirutilizadorRoute.post('/', (req,res) => {
-       connection.query(
+inserirutilizadorRoute.post('/', cors(), (req,res) => {
+       /*connection.query(
         'INSERT INTO utilizadores (nomeutilizador,moradarua,moradanumero,datanascimento,telemovel,email,idtipo) VALUES (?,?,?,?,?,?,?)', 
         [req.body.nomeutilizador,req.body.moradarua, req.body.moradanumero,req.body.datanascimento,req.body.telemovel,req.body.email,req.body.idtipo],     
         (err,result) => {
@@ -29,7 +30,8 @@ inserirutilizadorRoute.post('/', (req,res) => {
             console.log(result)
             res.json({text : 'Utilizador adicionado com sucesso!'})
         }
-    }) 
+    }) */
+    console.log(req.body)
     
 })
 

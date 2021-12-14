@@ -89,8 +89,9 @@ function getData(){
     const options = {
         method: 'POST',
         headers: {
-            'Content-type' : 'application/json'
+            'Accept' : 'application/json'
         },
+        //mode: 'cors',
         body: jsonDados
     }
 
@@ -120,7 +121,7 @@ function sendImage(){
             mode: 'cors',
             body: imageData
         }
-        fetch('http://localhost:3000/util', options)
+        fetch('http://localhost:3000/utilizador', options)
         .then(res => res.json())
         .then(data => alert(data.message))
         .catch((err)=>{
