@@ -106,9 +106,21 @@ function getData(){
 function sendImage(){
     const image = document.getElementById('foto').files[0]
     const nomeutilizador = document.getElementById('nome').value
+    const moradarua = document.getElementById('morada_rua').value
+    const moradanumero= document.getElementById('morada_num').value
+    const datanascimento = document.getElementById('dnasc').value
+    const email = document.getElementById('email').value
+    const telemovel = document.getElementById('telem').value
+    const idtipo = document.getElementById('tipo').value
     let fd = new FormData()
     fd.append('image',image)
     fd.append('nomeutilizador',nomeutilizador)
+    fd.append('moradarua',moradarua)
+    fd.append('moradanumero',moradanumero)
+    fd.append('datanascimento',datanascimento)
+    fd.append('email',email)
+    fd.append('telemovel',parseInt(telemovel)) //converter para inteiro
+    fd.append('idtipo',idtipo)
     if(image == undefined)
         alert('Não há imagem selecionada!')
     else{
@@ -119,7 +131,7 @@ function sendImage(){
             },
             body: fd
         }
-        fetch('http://localhost:5000/foto',options)
+        fetch('http://localhost:5000/utilizador',options)
         .then(res => res.json())
         .then(data => alert(data.res))
         .catch((err) => {
