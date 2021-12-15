@@ -91,7 +91,6 @@ function getData(){
         headers: {
             'Accept' : 'application/json'
         },
-        //mode: 'cors',
         body: jsonDados
     }
 
@@ -104,29 +103,30 @@ function getData(){
     
 }
 
-
 function sendImage(){
     const image = document.getElementById('foto').files[0]
-    let imageData = new FormData()
-    imageData.append('image', 'image')
-    if(image==undefined){
+    const nomeutilizador = document.getElementById('nome').value
+    let fd = new FormData()
+    fd.append('image',image)
+    fd.append('nomeutilizador',nomeutilizador)
+    if(image == undefined)
         alert('Não há imagem selecionada!')
-    }
-    else {
-        let options = {
-            method: 'POST',
+    else{
+        var options = {
+            method:'POST',
             headers: {
-                'Accept':'application/json'
+                'Accept' : 'application/json'
             },
-            mode: 'cors',
-            body: imageData
+            body: fd
         }
-        fetch('http://localhost:3000/utilizador', options)
+        fetch('http://localhost:5000/foto',options)
         .then(res => res.json())
-        .then(data => alert(data.message))
-        .catch((err)=>{
-            alert(err)
-        })
+        .then(data => alert(data.res))
+        .catch((err) => {
+            console.log('Request failed', err.message)
+        });
+
+    
     }
 }
 
